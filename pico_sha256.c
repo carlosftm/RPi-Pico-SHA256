@@ -179,13 +179,9 @@ int main()
 
     while (true)
     {
-        do
-        {
-            data_init(message, pData);
-            chunk_loop(data);
-            compression_loop(data);
-            uint32_t *p_msg = (uint32_t *)&message[0];
-        } while ((hash[0] & 0xFFF00000) != 0x00000000);
+        data_init(message, pData);
+        chunk_loop(data);
+        compression_loop(data);
 
         for (uint32_t j = 0; j < 8; j++)
         {
